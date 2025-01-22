@@ -24,7 +24,7 @@
 
     <a-scene>
         <a-sky color="#0077b6"></a-sky>
-        
+
         <!-- Lake -->
         <a-water scale="10 10 10" position="60 0 40" width="10" height="100" voronoi-points="0" opacity=".7"></a-water>
 
@@ -58,61 +58,63 @@
 
         <!-- Table -->
         <a-entity scale="1 1 1" position="0 0 -1" rotation="0 0 0">
-            <a-entity gltf-model="#typewriter" rotation="0 180z 0" position="0 2.5 0" scale=".8 .8 .8" class="clickable" cursor-listener></a-entity>
+            <a-entity gltf-model="#typewriter" rotation="0 180z 0" position="0 2.5 0" scale=".8 .8 .8" class="clickable"
+                cursor-listener></a-entity>
             <a-entity gltf-model="#table" rotation="0 145 0" position="0 0 0" scale="2 2 2"></a-entity>
             <a-entity gltf-model="#letter" rotation="0 45 0" position="1.5 2.35 0" scale=".5 .5 .5"></a-entity>
             <a-entity gltf-model="#chair" rotation="0 -125 0" position="1 0 2" scale="3 3 3"></a-entity>
         </a-entity>
-        
 
-            <!-- Sol -->
-            <a-entity gltf-model="#floor" scale="2 1 2" position="0 -.8 0" rotation="0 55 0"></a-entity>
 
-            <!-- Distrib -->
-            <a-entity gltf-model="#vending" rotation="0 145 0" position="0 1.2 1" scale="1.2 1.2 1.2" class="clickable" cursor-listener>
-            </a-entity>
+        <!-- Sol -->
+        <a-entity scale="1 1 1" position="0 0 -1" rotation="0 0 0">
+            <a-entity gltf-model="#floor1" scale="2 1 2" position="0 -0.2 5" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#floor1" scale="2 1 2" position="0 -0.2 8.8" rotation="0 180 0"></a-entity>
+            <a-entity gltf-model="#floor2" scale="2 1 2" position="0 -0.2 12.6s" rotation="0 0 0"></a-entity>
+        </a-entity>
 
-            <!-- Lights -->
-            <a-entity light="type: directional; color: #14213d; intensity: 0.5" position="0 10 -50"
-                target="#vending"></a-entity>
-            <a-entity light="type: ambient; color: #FFFq" position="0 10 0"></a-entity>
+        <!-- Distrib -->
+        <a-entity gltf-model="#vending" rotation="0 145 0" position="0 1.2 1" scale="1.2 1.2 1.2" class="clickable"
+            cursor-listener>
+        </a-entity>
 
-            <!-- CAMERA & manettes -->
-            <a-entity movement-controls="speed:0.7; fly:true;"  id="rig" position="0 1.5 5" rotation="0 0 0">
-                <!-- Z80 pour la cam pour le début -->
-                <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
-                    <a-cursor></a-cursor>
-                </a-camera>
-                <a-entity
-                laser-controls="hand: left"
+        <!-- Lights -->
+        <a-entity light="type: directional; color: #14213d; intensity: 0.5" position="0 10 -50"
+            target="#vending"></a-entity>
+        <a-entity light="type: ambient; color: #FFFq" position="0 10 0"></a-entity>
+
+        <!-- CAMERA & manettes -->
+        <a-entity movement-controls="speed:0.7; fly:true;" id="rig" position="0 1.5 5" rotation="0 0 0">
+            <!-- Z80 pour la cam pour le début -->
+            <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
+                <a-cursor></a-cursor>
+            </a-camera>
+            <a-entity laser-controls="hand: left"
                 raycaster="objects: .clickable; far: 20; showLine: true; raycaster: red;"
-                position="-0.5 1.5 -0.5"
-              ></a-entity>
-              <a-entity
-                laser-controls="hand: right"
+                position="-0.5 1.5 -0.5"></a-entity>
+            <a-entity laser-controls="hand: right"
                 raycaster="objects: .clickable; far: 20; showLine: true; raycaster: red;"
-                position="0.5 1.5 -0.5"
-              ></a-entity>
-            </a-entity>
-            
-            <!-- Sound -->
-            <!-- <a-sound src="./sound/merrick.mp3" loop="true" autoplay="true"></a-sound> -->
+                position="0.5 1.5 -0.5"></a-entity>
+        </a-entity>
+
+        <!-- Sound -->
+         <a-sound src="./sound/ost-violette-evergarden.mp3" loop="true" autoplay="true"></a-sound>
     </a-scene>
 </body>
 
 </html>
 <script>
     AFRAME.registerComponent("cursor-listener", {
-      init: function () {
-        const sound= document.querySelector("#distrib");
-        this.el.addEventListener("click", function (evt) {
-          console.log("play sound");
-          sound.play();
-        });
-      },
+        init: function () {
+            const sound = document.querySelector("#distrib");
+            this.el.addEventListener("click", function (evt) {
+                console.log("play sound");
+                sound.play();
+            });
+        },
     });
 
 
-  </script>
+</script>
 
 <!--  Faire au survol luminescense sur des objets et quand on clique sur le distrib GLING GLING  -->
