@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <a-asset-item id="forest" src="./assets/vegetations/forest.glb"></a-asset-item>
+    <a-asset-item id="forest" src="./assets/vegetations/sapinforest.glb"></a-asset-item>
     <a-asset-item id="barriere" src="./assets/fence.glb"></a-asset-item>
     <a-asset-item id="letter" src="./assets/letter.glb"></a-asset-item>
     <a-asset-item id="floor1" src="./assets/path.glb"></a-asset-item>
@@ -52,8 +52,9 @@
         <a-entity gltf-model="#barriere" rotation="0 90 0" position="9 1.5 5" scale="4 4 4"></a-entity>
         <a-entity gltf-model="#barriere" rotation="0 90 0" position="9 1.5 1.5" scale="4 4 4"></a-entity>
 
-
-
+        <!-- Forest -->
+        <a-entity gltf-model="#forest" rotation="0 90 0" position="-50 0 20" scale="50 50 50"></a-entity>
+        <a-entity gltf-model="#forest" rotation="0 90 0" position="-50 0 100" scale="50 50 50"></a-entity>
 
         <!-- Table -->
         <a-entity scale="1 1 1" position="0 0 -1" rotation="0 0 0">
@@ -77,7 +78,8 @@
             <a-entity light="type: ambient; color: #FFFq" position="0 10 0"></a-entity>
 
             <!-- CAMERA & manettes -->
-            <a-entity movement-controls="speed:0.7; fly:true;"  id="rig" position="0 1.5 80" rotation="0 0 0">
+            <a-entity movement-controls="speed:0.7; fly:true;"  id="rig" position="0 1.5 5" rotation="0 0 0">
+                <!-- Z80 pour la cam pour le début -->
                 <a-camera look-controls="pointerLockEnabled: true" position="0 1.6 0">
                     <a-cursor></a-cursor>
                 </a-camera>
